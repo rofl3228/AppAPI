@@ -19,8 +19,13 @@ This is Node.js+express+mongodb **back-end** service
   and request will be contain 'token' and 'name' fields
   
 3. Add avatar picture  
-  To add avatar for user use **POST** (multipart/form-data) to \<your-server-url>:8000/upload_avatar with fields 'user'(text) and 'avatar' (file) fields
+  To add avatar for user use **POST** (multipart/form-data) to \<your-server-url>:8000/upload_avatar with fields 'token'(text) and 'avatar' (file) fields
 
+4. Upload some images  
+  To upload image use **POST** request like before
+
+5. Logout  
+  Use **GET** request to \<your-server-url>:8000/logout/?token=<USER_TOKEN>
 
 ***
 You can see more in [Wiki](https://github.com/rofl3228/AppAPI/wiki)

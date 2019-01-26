@@ -12,11 +12,11 @@ This is Node.js+express+mongodb **back-end** service
 ## Functions
 
 1. Add new *user*  
-  To add new user use **POST** to <your-server-url>:8000/add_user with fields 'user', 'password', 'name'
+  To add new user use **POST** to \<your-server-url>:8000/add_user with fields 'user', 'password', 'name'
 
 2. Get token  
-  To get token use **GET** to <your-server-url>:8000/token/?user=<USER_NAME>&password=<USER_PASSWORD>
+  To get token use **GET** to \<your-server-url>:8000/token/?user=<USER_NAME>&password=<USER_PASSWORD>
   and request will be contain 'token' and 'name' fields
   
 3. Add avatar picture  
-  To add avatar for user use **POST** (multipart/form-data) to <your-server-url>:8000/upload_avatar with fields 'user'(text) and 'avatar' (file) fields
+  To add avatar for user use **POST** (multipart/form-data) to \<your-server-url>:8000/upload_avatar with fields 'user'(text) and 'avatar' (file) fields

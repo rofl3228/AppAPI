@@ -20,3 +20,7 @@ This is Node.js+express+mongodb **back-end** service
   
 3. Add avatar picture  
   To add avatar for user use **POST** (multipart/form-data) to \<your-server-url>:8000/upload_avatar with fields 'user'(text) and 'avatar' (file) fields
+
+
+***
+You can see more in [Wiki](https://github.com/rofl3228/AppAPI/wiki)

@@ -11,11 +11,16 @@ module.exports = function (request, response, db) {
                 console.log(result);
                 const tokenGen = new TokenGenerator();
                 let token = tokenGen.generate();
-                response.send({'token': token.toString(), 'name': result.name});
-                db.collection('accounts').updateOne({'user' : user.toString()}, {$set: { 'token' : token}}, {upsert : false});
+                db.collection('auth').insertOne({'user' : user.toString(), 'token' : token}, (err, result) => {
+                    if (err) {
+                        response.send({'err' : 'Token add error'});
+                    } else {
+                        response.send({'token': token.toString(), 'name': result.name});
+                    }
+                });
             } else {
                 response.send({ 'error': 'Wrong account data'});
             }
         }
     })
-}
+};

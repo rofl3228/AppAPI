@@ -1,23 +1,8 @@
 const API = require('./api/api');
+const config = require('../../config/config');
 
 const multer = require('multer');
-var avatar_storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'uploads/avatars');
-    },
-    filename: function (req, file, cb) {
-        cb(null, 'ava-'+req.body.user+'-'+file.originalname);
-    }
-});
 
-var img_storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'uploads/img');
-    },
-    filename: function (req, file, cb) {
-        cb(null, 'img-'+req.body.user+'-'+file.originalname);
-    }
-});
 
 module.exports = function (app, db) {
     app.get('/check_user/:user', (request, response) => {
@@ -38,11 +23,19 @@ module.exports = function (app, db) {
         API.AddUser(request, response, db);
     });
 
-    app.post('/upload_avatar', multer({ storage: avatar_storage}).single('avatar'), (request, response) => {
+    app.post('/upload_avatar', multer({ storage: config.AvatarStorage}).single('avatar'), (request, response) => {
         API.UploadAvatar(request, response, db);
     });
 
-    app.post('/upload_img', multer({ storage: img_storage}).single('img'), (request, response) => {
+    app.post('/upload_img', multer({ storage: config.ImagesStorage}).single('img'), (request, response) => {
         API.UploadImage(request, response, db);
+    });
+
+    app.post('/add_note', (request, response) => {
+        API.AddNote(request, response, db);
+    });
+
+    app.delete('/delete_user', (request, response) => {
+        API.DeleteUser(request, response, db);
     });
 };

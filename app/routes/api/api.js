@@ -5,3 +5,5 @@ module.exports.Token = require('./token');
 module.exports.UploadAvatar = require('./upload_avatar');
 module.exports.UploadImage = require('./upload_img');
 module.exports.Logout = require('./logout');
+module.exports.AddNote = require('./add_note');
+module.exports.DeleteUser = require('./delete_user');
